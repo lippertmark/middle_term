@@ -107,18 +107,21 @@ class NumArray:
 
         curr_1 = self.tail
         curr_2 = other.tail
-        while curr_1.prev != None or curr_2.prev != None:
+        while curr_1 != None or curr_2 != None:
             if curr_1.prev == None:
                 return False
-            if curr_1.prev == None:
-                return True
+            if curr_2.prev == None:
+                return False
+            if curr_1.val == curr_2.val:
+                curr_1 = curr_1.prev
+                curr_2 = curr_2.prev
+            else:
+                return False
+        return True
 
 
 ch_1 = NumArray(123)
-ch_2 = NumArray(23)
-ch_2_neg = - ch_2
-ch_4 = ch_1 - ch_2
-print(ch_1)
-print(ch_2)
+ch_2 = NumArray(123)
 
-print(ch_4)
+print(ch_1 == ch_1)
+
